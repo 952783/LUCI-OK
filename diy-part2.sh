@@ -12,7 +12,8 @@ sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(BUILD_DATE_PREFIX)-/g' ./include/image.mk
 sed -i "s/DISTRIB_DESCRIPTION='OpenWrt '/DISTRIB_DESCRIPTION='OpenWrt-Firker '/g" ./package/lean/default-settings/files/zzz-default-settings
 sed -i "s/hostname='OpenWrt'/hostname='LUCI'/g" ./package/base-files/files/bin/config_generate
 
-
+# 修改默认IP
+sed -i 's/192.168.1.1/192.168.1.111/g' package/base-files/files/bin/config_generate
 # 删除默认密码
 sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-default-settings
 # ttyd自动登录
@@ -23,8 +24,6 @@ sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/tt
 # curl -fsSL  https://raw.githubusercontent.com/siropboy/other/master/patch/poweroff/system.lua > ./feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 # curl -fsSL  https://raw.githubusercontent.com/firkerword/KPR/main/logo.jpg > .package/luci-app-serverchan/root/usr/bin/serverchan/api/logo.jpg
 # wget https://raw.githubusercontent.com/firkerword/KPR/main/cus_config.yaml -O ./package/openwrt-mos/luci-app-mosdns/root/etc/mosdns/cus_config.yaml
-# Modify default IP
-sed -i 's/192.168.1.1/192.168.1.111/g' package/base-files/files/bin/config_generate
 # rm -rf ./feeds/luci/applications/luci-app-qbittorrent
 rm -rf ./feeds/luci/applications/luci-app-serverchan
 rm -rf ./feeds/luci/applications/luci-app-mosdns
