@@ -10,7 +10,7 @@
 sed -i '/DTS_DIR:=$(LINUX_DIR)/a\BUILD_DATE_PREFIX := $(shell date +'%F')' ./include/image.mk
 sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(BUILD_DATE_PREFIX)-/g' ./include/image.mk
 sed -i "s/DISTRIB_DESCRIPTION='OpenWrt '/DISTRIB_DESCRIPTION='OpenWrt-Firker '/g" ./package/lean/default-settings/files/zzz-default-settings
-sed -i "s/hostname='OpenWrt'/hostname='LUCI'/g" ./package/base-files/files/bin/config_generate
+sed -i "s/hostname='OpenWrt'/hostname='952783'/g" ./package/base-files/files/bin/config_generate
 
 # 修改默认IP
 sed -i 's/192.168.1.1/192.168.1.111/g' package/base-files/files/bin/config_generate
